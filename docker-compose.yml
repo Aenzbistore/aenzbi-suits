@@ -1,0 +1,40 @@
+version: '3'
+services:
+  retail-management:
+    build: ./retail-management
+    ports:
+      - "3001:3000"
+    networks:
+      - aenzbi-network
+
+  ecommerce:
+    build: ./ecommerce
+    ports:
+      - "3002:3000"
+    networks:
+      - aenzbi-network
+
+  digital-banking:
+    build: ./digital-banking
+    ports:
+      - "8000:8000"
+    networks:
+      - aenzbi-network
+
+  crm-erp:
+    build: ./crm-erp
+    ports:
+      - "3003:3000"
+    networks:
+      - aenzbi-network
+
+  inventory-system:
+    build: ./inventory-system
+    ports:
+      - "8080:80"
+    networks:
+      - aenzbi-network
+
+networks:
+  aenzbi-network:
+    driver: bridge
